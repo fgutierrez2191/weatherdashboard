@@ -5,6 +5,7 @@ var currentWeather = document.getElementById('content');
 var currentHumidity = document.getElementById('humidity');
 var currentWindSpeed = document.getElementById('windspeed');
 var currentFeelsLike = document.getElementById('feelslike');
+var currentFiveDay = document.getElementById('fiveday');
 var apiKey = '12a2165c663fd1ef8ae014039dcd5dd7';
 var searchHistory = JSON.parse(localStorage.getItem('search-history')) || [];
 submit.addEventListener('click', function (event) {
@@ -21,7 +22,6 @@ var searchTerm = searchInput.value;
 });
 //temperature
 function getForecast(city) {
-  console.log(city);
   fetch(
     'http://api.openweathermap.org/data/2.5/weather?q=' +
       city +
@@ -34,7 +34,6 @@ function getForecast(city) {
     })
     .then(function (data) {
       currentWeather.textContent = '';
-      console.log(data);
       //create all elements and add text content
       var tempEl = document.createElement('h2');
       tempEl.textContent = 'Current Temperature: ' + data.main.temp;
@@ -44,7 +43,6 @@ function getForecast(city) {
 }
 //humidity
 function getHumidity(city) {
-    console.log(city);
     fetch(
       'http://api.openweathermap.org/data/2.5/weather?q=' +
         city +
@@ -57,7 +55,6 @@ function getHumidity(city) {
       })
       .then(function (data) {
         currentHumidity.textContent = '';
-        console.log(data);
         //create all elements and add text content
         var humidEl = document.createElement('h2');
         humidEl.textContent = 'Current humidity: ' + data.main.humidity;
@@ -67,7 +64,6 @@ function getHumidity(city) {
   }
   //windspeed
   function getWindSpeed(city) {
-    console.log(city);
     fetch(
       'http://api.openweathermap.org/data/2.5/weather?q=' +
         city +
@@ -80,7 +76,6 @@ function getHumidity(city) {
       })
       .then(function (data) {
         currentWindSpeed.textContent = '';
-        console.log(data);
         //create all elements and add text content
         var windSpeedEl = document.createElement('h2');
         windSpeedEl.textContent = 'Wind Speed: ' + data.wind.speed;
@@ -90,7 +85,6 @@ function getHumidity(city) {
   }
   //feels like
     function feelsLike(city) {
-    console.log(city);
     fetch(
       'http://api.openweathermap.org/data/2.5/weather?q=' +
         city +
@@ -103,7 +97,6 @@ function getHumidity(city) {
       })
       .then(function (data) {
         currentFeelsLike.textContent = '';
-        console.log(data);
         //create all elements and add text content
         var feelsLikeEl = document.createElement('h2');
         feelsLikeEl.textContent = 'Feels like: ' + data.main.feels_like;
@@ -111,3 +104,8 @@ function getHumidity(city) {
         currentFeelsLike.appendChild(feelsLikeEl);
       });
   }
+  //five day forecast using a saved cityname
+
+
+
+  
