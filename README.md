@@ -17,3 +17,7 @@ Build a weather dashboard application with search functionality to find current 
 - OpenWeather API
 - HTML
 - CSS
+
+## Contribution
+Made by [Aldrin Burgos, Felix Gutierrez, Brandon Hart, Benjamin Recinos, Sarah McNeel,and Kevin Simmons]
+
