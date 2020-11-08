@@ -20,6 +20,7 @@ var searchTerm = searchInput.value;
   getWindSpeed(searchTerm);
   feelsLike(searchTerm);
   getFiveDay(searchTerm);
+
 });
 //temperature
 function getForecast(city) {
@@ -106,29 +107,24 @@ function getHumidity(city) {
       });
   }
   //five day forecast using a saved cityname
-  function getFiveDay(city) {
-    fetch(
-      'http://api.openweathermap.org/data/2.5/forecast?q=' +
-      city +
-      '&appid=' +
-      apiKey +
-      '&units=imperial'
-    )
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        console.log(data);
-        currentFiveDay.textContent = '';
-        //create all elements and add text content
-        var fiveDayEl = document.createElement('h2');
-        fiveDayEl.textContent = 'Current fiveday: ' + data.main.temp;
-        //append all created elements
-        currentFiveDay.appendChild(fiveDayEl);
-      });
-  }
+ function getFiveDay(city) {
+   fetch(
+    'http://api.openweathermap.org/data/2.5/forecast?q=' +
+    city +
+    '&appid=' +
+    apiKey
+  )
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function(data) {
+    console.log(data);
+    currentFiveDay.textContent = '';
+    //create all elements and add text content
+    var fiveDayEl = document.createElement('div');
+    fiveDayEl.textContent = 'five-day: ' + data.weather.main;
+    //append all created elements
+    currentFiveDay.appendChild(fiveDayEl)
+  });
 
-
-
-
-  
+ }
