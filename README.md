@@ -19,5 +19,5 @@ Build a weather dashboard application with search functionality to find current 
 - CSS
 
 ## Contribution
-Made by [Aldrin Burgos, Felix Gutierrez, Brandon Hart, Benjamin Recinos, Sarah McNeel,and Kevin Simmons]
+Made by [Felix Gutierrez]
 
