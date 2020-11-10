@@ -77,6 +77,7 @@ function getHumidity(city) {
         return response.json();
       })
       .then(function (data) {
+        console.log(data);
         currentWindSpeed.textContent = '';
         //create all elements and add text content
         var windSpeedEl = document.createElement('h2');
@@ -112,7 +113,8 @@ function getHumidity(city) {
     'http://api.openweathermap.org/data/2.5/forecast?q=' +
     city +
     '&appid=' +
-    apiKey
+    apiKey +
+    '&units=imperial'
   )
   .then(function (response) {
     return response.json();
@@ -121,10 +123,30 @@ function getHumidity(city) {
     console.log(data);
     currentFiveDay.textContent = '';
     //create all elements and add text content
-    var fiveDayEl = document.createElement('div');
-    fiveDayEl.textContent = 'five-day: ' + data.weather.main;
-    //append all created elements
-    currentFiveDay.appendChild(fiveDayEl)
+    for (var i=0; i<data.list.length; i++){
+      if (data.list[i].dt_txt.indexOf("00:00:00") !== -1) {
+        var card = document.createElement("div")
+        card.setAttribute("class", "col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded");
+        var temp = document.createElement("p")
+        temp.textContent = "Temp:" + data.list[i].main.temp
+        var humidity = document.createElement("p")
+        humidity.textContent = "Humidity:" + data.list[i].main.humidity
+
+        card.appendChild(temp);
+        card.appendChild(humidity);
+        //add eveything to the card and then append card to page
+        currentFiveDay.appendChild(card);
+      }
+    }
+
+
   });
 
  }
+
+//  <div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded" >
+//  <p id="fDate1"></p>
+//  <p id="fImg1"></p>
+//    <p>Temp:<span id="fTemp1"></span></p>
+//    <p>Humidity:<span id="fHumidity1"></span></p>
+// </div>
