@@ -128,12 +128,15 @@ function getHumidity(city) {
         var card = document.createElement("div")
         card.setAttribute("class", "col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded");
         var temp = document.createElement("p")
-        temp.textContent = "Temp:" + data.list[i].main.temp
+        temp.textContent = "Temp: " + data.list[i].main.temp
         var humidity = document.createElement("p")
-        humidity.textContent = "Humidity:" + data.list[i].main.humidity
+        humidity.textContent = "Humidity: " + data.list[i].main.humidity
+        var date = document.createElement("p")
+        date.textContent = "Date: " + data.list[i].dt_txt
 
         card.appendChild(temp);
         card.appendChild(humidity);
+        card.appendChild(date);
         //add eveything to the card and then append card to page
         currentFiveDay.appendChild(card);
       }
