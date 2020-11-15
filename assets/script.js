@@ -10,22 +10,21 @@ var apiKey = '12a2165c663fd1ef8ae014039dcd5dd7';
 var searchHistory = JSON.parse(localStorage.getItem('search-history')) || [];
 submit.addEventListener('click', function (event) {
     event.preventDefault();
-var searchTerm = searchInput.value;
-    searchHistory.push(searchTerm);
+    searchHistory.push(searchUser);
   localStorage.setItem('search-history', JSON.stringify(searchHistory));
   console.log(searchHistory);
   //call functions to get different aspects of weather 
-  getForecast(searchTerm);
-  getHumidity(searchTerm);
-  getWindSpeed(searchTerm);
-  feelsLike(searchTerm);
-  getFiveDay(searchTerm);
+  getForecast(searchUser);
+  getHumidity(searchUser);
+  getWindSpeed(searchUser);
+  feelsLike(searchUser);
+  getFiveDay(searchUser);
 
 });
 //temperature
 function getForecast(city) {
   fetch(
-    'http://api.openweathermap.org/data/2.5/weather?q=' +
+    'https://api.openweathermap.org/data/2.5/weather?q=' +
       city +
       '&appid=' +
       apiKey +
