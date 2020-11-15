@@ -45,7 +45,7 @@ function getForecast(city) {
 //humidity
 function getHumidity(city) {
     fetch(
-      'http://api.openweathermap.org/data/2.5/weather?q=' +
+      'https://api.openweathermap.org/data/2.5/weather?q=' +
         city +
         '&appid=' +
         apiKey +
@@ -66,7 +66,7 @@ function getHumidity(city) {
   //windspeed
   function getWindSpeed(city) {
     fetch(
-      'http://api.openweathermap.org/data/2.5/weather?q=' +
+      'https://api.openweathermap.org/data/2.5/weather?q=' +
         city +
         '&appid=' +
         apiKey +
@@ -88,7 +88,7 @@ function getHumidity(city) {
   //feels like
     function feelsLike(city) {
     fetch(
-      'http://api.openweathermap.org/data/2.5/weather?q=' +
+      'https://api.openweathermap.org/data/2.5/weather?q=' +
         city +
         '&appid=' +
         apiKey +
@@ -109,7 +109,7 @@ function getHumidity(city) {
   //five day forecast using a saved cityname
  function getFiveDay(city) {
    fetch(
-    'http://api.openweathermap.org/data/2.5/forecast?q=' +
+    'https://api.openweathermap.org/data/2.5/forecast?q=' +
     city +
     '&appid=' +
     apiKey +
