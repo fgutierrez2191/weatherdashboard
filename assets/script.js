@@ -10,15 +10,15 @@ var apiKey = '12a2165c663fd1ef8ae014039dcd5dd7';
 var searchHistory = JSON.parse(localStorage.getItem('search-history')) || [];
 submit.addEventListener('click', function (event) {
     event.preventDefault();
-    searchHistory.push(searchUser);
+    searchHistory.push(searchInput);
   localStorage.setItem('search-history', JSON.stringify(searchHistory));
   console.log(searchHistory);
   //call functions to get different aspects of weather 
-  getForecast(searchUser);
-  getHumidity(searchUser);
-  getWindSpeed(searchUser);
-  feelsLike(searchUser);
-  getFiveDay(searchUser);
+  getForecast(searchInput);
+  getHumidity(searchInput);
+  getWindSpeed(searchInput);
+  feelsLike(searchInput);
+  getFiveDay(searchInput);
 
 });
 //temperature
