@@ -1,6 +1,6 @@
 
 var submit = document.getElementById('submit');
-var searchInput = document.getElementById('searchUser');
+
 var currentWeather = document.getElementById('content');
 var currentHumidity = document.getElementById('humidity');
 var currentWindSpeed = document.getElementById('windspeed');
@@ -9,6 +9,8 @@ var currentFiveDay = document.getElementById('five-day');
 var apiKey = '12a2165c663fd1ef8ae014039dcd5dd7';
 var searchHistory = JSON.parse(localStorage.getItem('search-history')) || [];
 submit.addEventListener('click', function (event) {
+  var searchInput = document.getElementById('searchUser').value;
+  console.log(searchInput);
     event.preventDefault();
     searchHistory.push(searchInput);
   localStorage.setItem('search-history', JSON.stringify(searchHistory));
